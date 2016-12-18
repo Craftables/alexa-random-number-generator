@@ -17,12 +17,10 @@ const handlers = {
         this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
     },
     'RandomNumberIntent': function () {
-        const cardTitle = this.t('DISPLAY_CARD_TITLE', this.t('SKILL_NAME'));
         const myNumber = Math.floor((Math.random() * MAX_NUMER) + 1);
 
         this.attributes.speechOutput = myNumber;
-		this.attributes.repromptSpeech = this.t('RANDOM_NUMER_REPEAT');
-		this.emit(':askWithCard', myNumber, this.attributes.repromptSpeech, cardTitle, myNumber);
+		this.emit(':tell', myNumber);
     },
     'AMAZON.HelpIntent': function () {
         this.attributes.speechOutput = this.t('HELP_MESSAGE');
@@ -52,8 +50,7 @@ const languageStrings = {
             DISPLAY_CARD_TITLE: '%s  - Generated number.',
             HELP_MESSAGE: "You can generate numbers saying, generate random number, or, you can say exit...Now, what can I help you with?",
             HELP_REPROMT: "You can say things like, generate random number, or you can say exit...Now, what can I help you with?",
-            STOP_MESSAGE: 'Goodbye!',
-			RANDOM_NUMER_REPEAT: 'Repeat random number'
+            STOP_MESSAGE: 'Goodbye!'
         },
     },
     'en-US': {
@@ -64,8 +61,7 @@ const languageStrings = {
             DDISPLAY_CARD_TITLE: '%s  - Generated number.',
             HELP_MESSAGE: "You can generate numbers saying, generate random number, or, you can say exit...Now, what can I help you with?",
             HELP_REPROMT: "You can say things like, generate random number, or you can say exit...Now, what can I help you with?",
-            STOP_MESSAGE: 'Goodbye!',
-			RANDOM_NUMER_REPEAT: 'Repeat random number'
+            STOP_MESSAGE: 'Goodbye!'
         },
     },
     'de-DE': {
@@ -76,8 +72,7 @@ const languageStrings = {
             DISPLAY_CARD_TITLE: '%s - Erzeugte Zufallszahl',
             HELP_MESSAGE: 'Du kannst beispielsweise Fragen sagen wie „Zufallszahl generieren“ oder du kannst „Beenden“ sagen ... Wie kann ich dir helfen?',
             HELP_REPROMT: 'Du kannst beispielsweise Sachen sagen wie „Zufallszahl generieren“ oder du kannst „Beenden“ sagen ... Wie kann ich dir helfen?',
-            STOP_MESSAGE: 'Auf Wiedersehen!',
-			RANDOM_NUMER_REPEAT: 'Zufallszahl wiederholen'
+            STOP_MESSAGE: 'Auf Wiedersehen!'
         },
     },
 };
